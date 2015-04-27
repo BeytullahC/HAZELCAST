@@ -5,12 +5,15 @@
     <artifactId>HAZELCAST</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <modules>
-        <module>HAZELCAST-CORE</module>
-    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
+    <modules>
+        <module>HAZELCAST-CORE</module>
+        <module>HAZELCAST-ECLIPSELINK</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>com.hazelcast</groupId>

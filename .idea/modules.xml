@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HAZELCAST.iml" filepath="$PROJECT_DIR$/HAZELCAST.iml" />
       <module fileurl="file://$PROJECT_DIR$/HAZELCAST-CORE/HAZELCAST-CORE.iml" filepath="$PROJECT_DIR$/HAZELCAST-CORE/HAZELCAST-CORE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HAZELCAST-ECLIPSELINK/HAZELCAST-ECLIPSELINK.iml" filepath="$PROJECT_DIR$/HAZELCAST-ECLIPSELINK/HAZELCAST-ECLIPSELINK.iml" />
     </modules>
   </component>
 </project>

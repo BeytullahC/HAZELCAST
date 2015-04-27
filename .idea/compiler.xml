@@ -23,11 +23,13 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="HAZELCAST-CORE" />
+        <module name="HAZELCAST-ECLIPSELINK" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="HAZELCAST" target="1.5" />
+      <module name="HAZELCAST" target="1.7" />
       <module name="HAZELCAST-CORE" target="1.7" />
+      <module name="HAZELCAST-ECLIPSELINK" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
