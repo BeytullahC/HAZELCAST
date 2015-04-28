@@ -22,22 +22,23 @@ import java.util.concurrent.BlockingQueue;
 import static org.junit.Assert.*;
 
 /**
- *
  * @author 912867
  */
 public class Tester {
-    static Config cfg = new Config();
-    static HazelcastInstance instance;
-    static ClientConfig clientConfig;
-    static HazelcastInstance client;
-    static Queue<String> queueCustomers;
-    static Map<Integer, String> mapCustomers;
-    static IMap map;
+
+    private static Config cfg;
+    private static HazelcastInstance instance;
+    private static ClientConfig clientConfig;
+    private static HazelcastInstance client;
+    private static Queue<String> queueCustomers;
+    private static Map<Integer, String> mapCustomers;
+    private static IMap map;
 
 
     @BeforeClass
     public static void testInit() {
         System.out.println("BEFORE RUNNING");
+        cfg = new Config();
         instance = Hazelcast.newHazelcastInstance(cfg);
         clientConfig = new ClientConfig();
         client = HazelcastClient.newHazelcastClient(clientConfig);

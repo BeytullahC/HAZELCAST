@@ -24,12 +24,14 @@
         <processorPath useClasspath="true" />
         <module name="HAZELCAST-CORE" />
         <module name="HAZELCAST-ECLIPSELINK" />
+        <module name="HAZELCAST-MODEL" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="HAZELCAST" target="1.7" />
       <module name="HAZELCAST-CORE" target="1.7" />
       <module name="HAZELCAST-ECLIPSELINK" target="1.7" />
+      <module name="HAZELCAST-MODEL" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -4,12 +4,12 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
     <persistence-unit name="HR_TEST_UNIT" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <!--    <class>com.beto.project.hazelcast.jpa.com.beto.project.hazelcast.jpa.entities.Countries</class>
-            <class>com.beto.project.hazelcast.jpa.com.beto.project.hazelcast.jpa.entities.Departments</class>
-            <class>com.beto.project.hazelcast.jpa.com.beto.project.hazelcast.jpa.entities.Jobs</class>
-            <class>com.beto.project.hazelcast.jpa.com.beto.project.hazelcast.jpa.entities.Employees</class>
-            <class>com.beto.project.hazelcast.jpa.com.beto.project.hazelcast.jpa.entities.Locations</class>
-            <class>com.beto.project.hazelcast.jpa.com.beto.project.hazelcast.jpa.entities.Regions</class>-->
+        <class>model.entities.Countries</class>
+        <class>model.entities.Departments</class>
+        <class>model.entities.Jobs</class>
+        <class>model.entities.Employees</class>
+        <class>model.entities.Locations</class>
+        <class>model.entities.Regions</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <validation-mode>NONE</validation-mode>
         <properties>

@@ -13,6 +13,7 @@
     <modules>
         <module>HAZELCAST-CORE</module>
         <module>HAZELCAST-ECLIPSELINK</module>
+        <module>HAZELCAST-MODEL</module>
     </modules>
     <dependencies>
         <dependency>

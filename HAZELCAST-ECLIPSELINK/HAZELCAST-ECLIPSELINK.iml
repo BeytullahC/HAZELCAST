@@ -13,10 +13,9 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="HR_TEST_UNIT" />
           <factory-entry name="HR_UNIT" value="267cf2fa-4554-4a1b-aa0e-6ed891b43a0e" />
         </datasource-mapping>
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/test/resources/META-INF/persistence.xml" />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
     </facet>
   </component>
@@ -48,6 +47,7 @@
     <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.antlr:2.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.jpa.jpql:2.5.2" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.32" level="project" />
+    <orderEntry type="module" module-name="HAZELCAST-MODEL" />
     <orderEntry type="library" name="Maven: com.hazelcast:hazelcast-all:3.4.2" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.findbugs:annotations:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: com.eclipsesource.minimal-json:minimal-json:0.9.1" level="project" />

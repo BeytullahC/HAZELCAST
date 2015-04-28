@@ -1,4 +1,4 @@
-package com.beto.project.hazelcast.jpa.entities;
+package com.beto.project.hazelcast.jpa;
 
 /**
  * Created by 912867 on 27.04.2015.
