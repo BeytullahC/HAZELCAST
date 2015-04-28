@@ -12,8 +12,9 @@
     </properties>
     <modules>
         <module>HAZELCAST-CORE</module>
-        <module>HAZELCAST-ECLIPSELINK</module>
         <module>HAZELCAST-MODEL</module>
+        <module>HAZELCAST-ECLIPSELINK</module>
+        <module>HAZELCAST-EJB-JPA</module>
     </modules>
     <dependencies>
         <dependency>

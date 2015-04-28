@@ -26,11 +26,19 @@
         <module name="HAZELCAST-ECLIPSELINK" />
         <module name="HAZELCAST-MODEL" />
       </profile>
+      <profile default="false" name="Annotation profile for HAZELCAST-EJB-JPA" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="HAZELCAST-EJB-JPA" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="HAZELCAST" target="1.7" />
       <module name="HAZELCAST-CORE" target="1.7" />
       <module name="HAZELCAST-ECLIPSELINK" target="1.7" />
+      <module name="HAZELCAST-EJB-JPA" target="1.7" />
       <module name="HAZELCAST-MODEL" target="1.7" />
     </bytecodeTargetLevel>
   </component>

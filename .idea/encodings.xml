@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/HAZELCAST-CORE" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/HAZELCAST-ECLIPSELINK" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HAZELCAST-EJB-JPA" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HAZELCAST-EJB-JPA/src/main/java/dao" charset="windows-1254" />
     <file url="file://$PROJECT_DIR$/HAZELCAST-MODEL" charset="UTF-8" />
   </component>
 </project>
