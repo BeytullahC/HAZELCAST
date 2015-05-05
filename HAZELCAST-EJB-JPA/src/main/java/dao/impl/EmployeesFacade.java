@@ -8,6 +8,7 @@ package dao.impl;
 import dao.generic.AbstractFacade;
 import dao.local.EmployeesFacadeLocal;
 import model.entities.Employees;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,7 +19,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class EmployeesFacade extends AbstractFacade<Employees> implements EmployeesFacadeLocal {
-    @PersistenceContext(unitName = "HR_TEST_UNIT")
+    @PersistenceContext(unitName = "HR_UNIT")
     private EntityManager em;
 
     @Override

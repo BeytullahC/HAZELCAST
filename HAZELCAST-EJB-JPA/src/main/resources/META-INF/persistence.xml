@@ -10,6 +10,18 @@
     <class>model.entities.Regions</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <validation-mode>NONE</validation-mode>
-    <properties/>
+    <properties>
+      <property name="eclipselink.logging.level.sql" value="FINE"/>
+      <property name="eclipselink.orm.throw.exceptions" value="true"/>
+      <property name="eclipselink.logging.exceptions" value="true"/>
+      <property name="eclipselink.logging.logger" value="DefaultLogger"/>
+      <property name="eclipselink.logging.parameters" value="true"/>
+      <!--CACHE PROPERTY-->
+      <property name="eclipselink.query-results-cache" value="false"/>
+      <property name="eclipselink.cache.shared.default" value="false"/>
+      <property name="eclipselink.cache.size.default" value="0"/>
+      <property name="eclipselink.cache.type.default" value="None"/>
+      <property name="eclipselink.jdbc.native-sql" value="true"/>
+    </properties>
   </persistence-unit>
 </persistence>

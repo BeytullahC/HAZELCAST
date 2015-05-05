@@ -10,6 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>HAZELCAST-ECLIPSELINK</artifactId>
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <antrun.plugin.version>1.7</antrun.plugin.version>
+    </properties>
     <dependencies>
 
         <dependency>
@@ -37,5 +42,106 @@
         </dependency>
 
     </dependencies>
+    <build>
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                        <compilerArguments>
+                            <endorseddirs>${endorsed.dir}</endorseddirs>
+                        </compilerArguments>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>2.3</version>
+                    <configuration>
+                        <ejbVersion>3.1</ejbVersion>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.6</version>
+                    <executions>
+                        <execution>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>copy</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${endorsed.dir}</outputDirectory>
+                                <silent>true</silent>
+                                <artifactItems>
+                                    <artifactItem>
+                                        <groupId>javax</groupId>
+                                        <artifactId>javaee-endorsed-api</artifactId>
+                                        <version>7.0</version>
+                                        <type>jar</type>
+                                    </artifactItem>
+                                </artifactItems>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>${antrun.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>copy-test-persistence</id>
+                            <phase>process-test-resources</phase>
+                            <configuration>
+                                <tasks>
+                                    <!--backup the "proper" persistence.xml -->
+                                    <copy
+                                            file="${project.build.outputDirectory}/META-INF/persistence.xml"
+                                            tofile="${project.build.outputDirectory}/META-INF/persistence.xml.proper"
+                                            overwrite="true"/>
+                                    <!--replace the "proper" persistence.xml with the "test" version -->
+                                    <copy
+                                            file="${project.build.testOutputDirectory}/META-INF/persistence.xml"
+                                            tofile="${project.build.outputDirectory}/META-INF/persistence.xml"
+                                            overwrite="true"/>
+                                    <!-- copy the "test" version also to the instrumented classes directory
+                                        of Cobertura. This is for Sonar and for any future usage of Cobertura -->
+                                    <copy
+                                            file="${project.build.testOutputDirectory}/META-INF/persistence.xml"
+                                            tofile="${project.build.directory}/generated-classes/cobertura/META-INF/persistence.xml"
+                                            overwrite="true"/>
+                                </tasks>
+                            </configuration>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>restore-persistence</id>
+                            <phase>prepare-package</phase>
+                            <configuration>
+                                <tasks>
+                                    <!--restore the "proper" persistence.xml -->
+                                    <copy
+                                            file="${project.build.outputDirectory}/META-INF/persistence.xml.proper"
+                                            tofile="${project.build.outputDirectory}/META-INF/persistence.xml"
+                                            overwrite="true"/>
+                                </tasks>
+                            </configuration>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>

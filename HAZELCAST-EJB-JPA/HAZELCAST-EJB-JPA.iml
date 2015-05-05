@@ -19,6 +19,7 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="HR_TEST_UNIT" />
+          <factory-entry name="HR_UNIT" />
           <factory-entry name="com.beto.project_mavenproject4_ejb_1.0-SNAPSHOTPU" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
@@ -33,15 +34,24 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target/HAZELCAST-EJB-JPA-1.0-SNAPSHOT" />
+      <excludeFolder url="file://$MODULE_DIR$/target/antrun" />
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/endorsed" />
+      <excludeFolder url="file://$MODULE_DIR$/target/generated-classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-status" />
       <excludeFolder url="file://$MODULE_DIR$/target/surefire" />
+      <excludeFolder url="file://$MODULE_DIR$/target/surefire-reports" />
+      <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.main.extras:glassfish-embedded-all:3.1.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-api:7.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.sun.mail:javax.mail:1.5.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.persistence:eclipselink:2.5.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.persistence:javax.persistence:2.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" level="project" />
@@ -52,14 +62,12 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.persistence:org.eclipse.persistence.antlr:2.5.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.persistence:org.eclipse.persistence.jpa.jpql:2.5.2" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.32" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache.derby:derby:10.5.3.0_1" level="project" />
     <orderEntry type="library" name="Maven: com.hazelcast:hazelcast-all:3.4.2" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.findbugs:annotations:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: com.eclipsesource.minimal-json:minimal-json:0.9.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
-    <orderEntry type="library" name="Maven: javax:javaee-api:7.0" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.5.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
   </component>
 </module>

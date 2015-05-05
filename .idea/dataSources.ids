@@ -15,10 +15,107 @@
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="hr"/>
+    <table name="countries" schema="" catalog="hr" type="TABLE">
+      <column name="country_id" sqlType="CHAR" precision="2" scale="0" nullable="false" jdbcType="1"/>
+      <column name="country_name" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="region_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="country_id"/>
+      <foreign-key name="countries_regions_region_id" columns="region_id" ref-table="regions" ref-schema="" ref-catalog="hr" ref-columns="region_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="locations_countries_country_id" table="locations" schema="" catalog="hr" columns="country_id"/>
+      <index name="countries_regions_region_id" unique="false" columns="region_id"/>
+    </table>
+    <table name="departments" schema="" catalog="hr" type="TABLE">
+      <column name="department_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="department_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="manager_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="location_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="department_id"/>
+      <foreign-key name="departments_ibfk_1" columns="manager_id" ref-table="employees" ref-schema="" ref-catalog="hr" ref-columns="employee_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="departments_locations_location_id" columns="location_id" ref-table="locations" ref-schema="" ref-catalog="hr" ref-columns="location_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="employees_departments_department_id" table="employees" schema="" catalog="hr" columns="department_id"/>
+      <exported-key name="job_history_departments_department_id" table="job_history" schema="" catalog="hr" columns="department_id"/>
+      <index name="departments_locations_location_id" unique="false" columns="location_id"/>
+    </table>
+    <table name="emp_details_view" schema="" catalog="hr" type="VIEW">
+      <column name="employee_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="job_id" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="manager_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="department_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="location_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="country_id" sqlType="CHAR" precision="2" scale="0" nullable="false" jdbcType="1"/>
+      <column name="first_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="salary" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3"/>
+      <column name="commission_pct" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="department_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="job_title" sqlType="VARCHAR" precision="35" scale="0" nullable="false" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="state_province" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="country_name" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="region_name" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="employees" schema="" catalog="hr" type="TABLE">
+      <column name="employee_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="first_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone_number" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="hire_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="job_id" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="salary" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3"/>
+      <column name="commission_pct" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="manager_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="department_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="employee_id"/>
+      <foreign-key name="employees_departments_department_id" columns="department_id" ref-table="departments" ref-schema="" ref-catalog="hr" ref-columns="department_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="employees_employees_employee_id" columns="manager_id" ref-table="employees" ref-schema="" ref-catalog="hr" ref-columns="employee_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="employees_jobs_job_id" columns="job_id" ref-table="jobs" ref-schema="" ref-catalog="hr" ref-columns="job_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="departments_ibfk_1" table="departments" schema="" catalog="hr" columns="manager_id"/>
+      <exported-key name="employees_employees_employee_id" table="employees" schema="" catalog="hr" columns="manager_id"/>
+      <exported-key name="job_history_employees_employee_id" table="job_history" schema="" catalog="hr" columns="employee_id"/>
+      <index name="employees_departments_department_id" unique="false" columns="department_id"/>
+      <index name="employees_employees_employee_id" unique="false" columns="manager_id"/>
+      <index name="employees_jobs_job_id" unique="false" columns="job_id"/>
+    </table>
+    <table name="job_history" schema="" catalog="hr" type="TABLE">
+      <column name="employee_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="start_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="end_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="job_id" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="department_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <foreign-key name="job_history_departments_department_id" columns="department_id" ref-table="departments" ref-schema="" ref-catalog="hr" ref-columns="department_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="job_history_employees_employee_id" columns="employee_id" ref-table="employees" ref-schema="" ref-catalog="hr" ref-columns="employee_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="job_history_jobs_job_id" columns="job_id" ref-table="jobs" ref-schema="" ref-catalog="hr" ref-columns="job_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="employee_id" unique="true" columns="start_date"/>
+      <index name="job_history_departments_department_id" unique="false" columns="department_id"/>
+      <index name="job_history_jobs_job_id" unique="false" columns="job_id"/>
+    </table>
+    <table name="jobs" schema="" catalog="hr" type="TABLE">
+      <column name="job_id" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="job_title" sqlType="VARCHAR" precision="35" scale="0" nullable="false" jdbcType="12"/>
+      <column name="min_salary" sqlType="DECIMAL UNSIGNED" precision="8" scale="0" nullable="true" jdbcType="3"/>
+      <column name="max_salary" sqlType="DECIMAL UNSIGNED" precision="8" scale="0" nullable="true" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="job_id"/>
+      <exported-key name="employees_jobs_job_id" table="employees" schema="" catalog="hr" columns="job_id"/>
+      <exported-key name="job_history_jobs_job_id" table="job_history" schema="" catalog="hr" columns="job_id"/>
+    </table>
+    <table name="locations" schema="" catalog="hr" type="TABLE">
+      <column name="location_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="street_address" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="postal_code" sqlType="VARCHAR" precision="12" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="state_province" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="country_id" sqlType="CHAR" precision="2" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="location_id"/>
+      <foreign-key name="locations_countries_country_id" columns="country_id" ref-table="countries" ref-schema="" ref-catalog="hr" ref-columns="country_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="departments_locations_location_id" table="departments" schema="" catalog="hr" columns="location_id"/>
+      <index name="locations_countries_country_id" unique="false" columns="country_id"/>
+    </table>
     <table name="regions" schema="" catalog="hr" type="TABLE">
       <column name="region_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="region_name" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="region_id"/>
+      <exported-key name="countries_regions_region_id" table="countries" schema="" catalog="hr" columns="region_id"/>
     </table>
   </data-source>
 </component>

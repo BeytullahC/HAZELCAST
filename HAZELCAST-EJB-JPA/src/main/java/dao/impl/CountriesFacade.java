@@ -7,18 +7,19 @@ package dao.impl;
 
 import dao.generic.AbstractFacade;
 import dao.local.CountriesFacadeLocal;
+import model.entities.Countries;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import model.entities.Countries;
 
 /**
  *
  * @author 912867
  */
-@Stateless
+@Stateless(name = "CountriesFacadeBean")
 public class CountriesFacade extends AbstractFacade<Countries> implements CountriesFacadeLocal {
-    @PersistenceContext(unitName = "HR_TEST_UNIT")
+    @PersistenceContext(unitName = "HR_UNIT")
     private EntityManager em;
 
     @Override

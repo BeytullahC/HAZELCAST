@@ -19,7 +19,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class JobsFacade extends AbstractFacade<Jobs> implements JobsFacadeLocal {
-    @PersistenceContext(unitName = "HR_TEST_UNIT")
+    @PersistenceContext(unitName = "HR_UNIT")
     private EntityManager em;
 
     @Override
