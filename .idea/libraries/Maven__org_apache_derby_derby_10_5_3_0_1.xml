@@ -3,9 +3,7 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/apache/derby/derby/10.5.3.0_1/derby-10.5.3.0_1.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/derby/derby/10.5.3.0_1/derby-10.5.3.0_1-javadoc.jar!/" />
-    </JAVADOC>
+    <JAVADOC />
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/apache/derby/derby/10.5.3.0_1/derby-10.5.3.0_1-sources.jar!/" />
     </SOURCES>

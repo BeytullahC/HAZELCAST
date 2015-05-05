@@ -12,7 +12,6 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
-import java.util.Map;
 
 import static org.testng.Assert.assertNotEquals;
 import static org.testng.Assert.assertTrue;
@@ -22,7 +21,7 @@ import static org.testng.Assert.assertTrue;
  */
 @Test
 @ContextConfiguration(classes = {DataSourceConfig.class})
-@TransactionConfiguration(defaultRollback = true)
+@TransactionConfiguration(defaultRollback = false)
 public class TestSh extends AbstractTransactionalTestNGSpringContextTests {
 
     private String COUNTRY_ID = "AR";
@@ -78,12 +77,12 @@ public class TestSh extends AbstractTransactionalTestNGSpringContextTests {
         hazelCastUtil.addDataToMap(EnHazelCast.COUNTRIES, country.getCountryId(), country);
     }
 
-    @Test
-    public void TestGetFromHZMap() {
-        Map<Object, Countries> map = hazelCastUtil.getDataToMap(EnHazelCast.COUNTRIES);
-        System.out.println("GELEN : " + map.size() + " data " + map.get(COUNTRY_ID));
-        assertNotEquals(null, map.get(COUNTRY_ID));
-    }
+//    @Test
+//    public void TestGetFromHZMap() {
+//        Map<Object, Countries> map = hazelCastUtil.getDataToMap(EnHazelCast.COUNTRIES);
+//        System.out.println("GELEN : " + map.size() + " data " + map.get(COUNTRY_ID));
+//        assertNotEquals(null, map.get(COUNTRY_ID));
+//    }
 
     public Countries getData() {
         return dao.test(COUNTRY_ID);
