@@ -15,6 +15,7 @@
         <module>HAZELCAST-MODEL</module>
         <module>HAZELCAST-ECLIPSELINK</module>
         <module>HAZELCAST-EJB-JPA</module>
+        <module>HAZELCAST-SPRING-HIBERNATE</module>
     </modules>
     <dependencies>
         <dependency>
