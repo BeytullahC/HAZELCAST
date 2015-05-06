@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="ejb-jar" name="HAZELCAST-EJB-JPA:ejb">
-    <output-path>$PROJECT_DIR$/HAZELCAST-EJB-JPA/target</output-path>
-    <root id="archive" name="HAZELCAST-EJB-JPA-1.0-SNAPSHOT.jar">
-      <element id="artifact" artifact-name="HAZELCAST-EJB-JPA:ejb exploded" />
-    </root>
-  </artifact>
-</component>
